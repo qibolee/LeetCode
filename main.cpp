@@ -5,13 +5,12 @@ using namespace std;
 
 int main() {
 
-    string s("aac");
-    string s1("aba"), s2("aab");
     Solution solution;
-    cout << solution.minDistance(s, s1) << endl;
-    cout << solution.minDistance(s, s2) << endl;
-
-    cout << solution.maxCommon("mart", "karma") << endl;
+//    cout << solution.minDistance("aac", "aab") << endl;
+//    cout << solution.minDistance("aac", "aba") << endl;
+//    cout << solution.minDistance("mart", "karma") << endl;
+//    cout << solution.minDistance("plasma", "altruism") << endl;
+    cout << solution.minDistance("intention", "execution") << endl;
 
     return 0;
 }
