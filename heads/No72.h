@@ -13,14 +13,15 @@ class Solution {
 public:
     int minDistance(std::string word1, std::string word2) {
 
-        std::vector<std::vector<int>> dp;
-        int min = std::max(word1.size(), word2.size());
         if (word1.empty() || word2.empty()) {
-            return min;
+            return std::max(word1.size(), word2.size());
         }
-        for (int i = 0; i < word1.size(); ++i) {
-            dp.push_back(std::vector<int>(word2.size(), 0));
+        if (word1.size() > word2.size()) {
+            return minDistance(word2, word1);
         }
+
+        std::vector<std::vector<int>> dp(word1.size(), std::vector<int>(word2.size(), 0));
+
         if (word1[0] != word2[0]) {
             dp[0][0] = 1;
         }

@@ -16,5 +16,7 @@
 #include <unordered_map>
 #include <stack>
 #include <deque>
+#include <list>
+#include <functional>
 
 #endif //LEETCODE_HEAD_H
