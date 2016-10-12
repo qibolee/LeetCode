@@ -15,7 +15,7 @@ public:
             return 0;
         }
         std::vector<std::vector<int>> nums(matrix.size(), std::vector<int>(matrix.front().size(), 0));
-        if (matrix.front().front() == '1') {
+        if (matrix.front().front() == '1') {//calculate first element of nums
             nums.front().front() = 1;
         }
         for (int i = 1; i < matrix.front().size(); ++i) {//first row
@@ -24,13 +24,13 @@ public:
         for (int i = 1; i < matrix.size(); ++i) {//first col
             nums[i][0] = nums[i - 1][0] + (matrix[i][0] == '1');
         }
-        for (int i = 1; i < matrix.size(); ++i) {//remain area
+        for (int i = 1; i < matrix.size(); ++i) {//remain elements
             for (int j = 1; j < matrix.front().size(); ++j) {
                 nums[i][j] = nums[i - 1][j] + nums[i][j - 1] - nums[i - 1][j - 1] + (matrix[i][j] == '1');
             }
         }
 
-        std::vector<std::pair<int, int>> seq;
+        std::vector<std::pair<int, int>> seq;//<height, width> pair by descend order
         for (int h = nums.size(); h > 0; h--) {
             for (int w = nums.front().size(); w > 0; w--) {
                 seq.push_back(std::pair<int, int>(h, w));
