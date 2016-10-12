@@ -8,68 +8,50 @@
 #include "head.h"
 
 class Solution {
+private:
+    int largestRectangleArea(std::vector<int> &heights) {
+        heights.push_back(0);
+        std::stack<int> mt;
+        int max = 0;
+        for (int i = 0; i < heights.size(); ++i) {
+            while (!mt.empty() && heights[mt.top()] > heights[i]) {
+                int ind = mt.top();
+                mt.pop();
+
+                int width = (mt.empty() ? i : i - mt.top() - 1);
+                int tmp = heights[ind] * width;
+                if (tmp > max) {
+                    max = tmp;
+                }
+            }
+            mt.push(i);
+        }
+        return max;
+    }
+
 public:
     int maximalRectangle(std::vector<std::vector<char>> &matrix) {
 
         if (matrix.empty()) {
             return 0;
         }
-        std::vector<std::vector<int>> nums(matrix.size(), std::vector<int>(matrix.front().size(), 0));
-        if (matrix.front().front() == '1') {//calculate first element of nums
-            nums.front().front() = 1;
-        }
-        for (int i = 1; i < matrix.front().size(); ++i) {//first row
-            nums[0][i] = nums[0][i - 1] + (matrix[0][i] == '1');
-        }
-        for (int i = 1; i < matrix.size(); ++i) {//first col
-            nums[i][0] = nums[i - 1][0] + (matrix[i][0] == '1');
-        }
-        for (int i = 1; i < matrix.size(); ++i) {//remain elements
-            for (int j = 1; j < matrix.front().size(); ++j) {
-                nums[i][j] = nums[i - 1][j] + nums[i][j - 1] - nums[i - 1][j - 1] + (matrix[i][j] == '1');
+        int max = 0;
+        std::vector<int> height(matrix.front().size(), 0);
+        for (int i = 0; i < matrix.size(); ++i) {
+
+            for (int j = 0; j < matrix.front().size(); ++j) {
+                if (matrix[i][j] == '1') {
+                    ++height[j];
+                } else {
+                    height[j] = 0;
+                }
+            }
+            int tmp = largestRectangleArea(height);
+            if (max < tmp) {
+                max = tmp;
             }
         }
 
-        std::vector<std::pair<int, int>> seq;//<height, width> pair by descend order
-        for (int h = nums.size(); h > 0; h--) {
-            for (int w = nums.front().size(); w > 0; w--) {
-                seq.push_back(std::pair<int, int>(h, w));
-            }
-        }
-        std::sort(seq.begin(), seq.end(),
-                  [](const std::pair<int, int> &par1, const std::pair<int, int> &par2) {
-                      return par1.first * par1.second > par2.first * par2.second;
-                  });
-        int max = (nums.back().back() > 0);
-        bool need_to_exit = false;
-
-        for (const std::pair<int, int> &par: seq) {
-            int h = par.first;
-            int w = par.second;
-            for (int i = 0; i <= nums.size() - h; ++i) {
-                for (int j = 0; j <= nums.front().size() - w; ++j) {
-                    int cnt = nums[i + h - 1][j + w - 1];
-                    if (i > 0 && j > 0) {
-                        cnt -= nums[i - 1][j + w - 1] + nums[i + h - 1][j - 1] - nums[i - 1][j - 1];
-                    } else if (i > 0) {
-                        cnt -= nums[i - 1][j + w - 1];
-                    } else if (j > 0) {
-                        cnt -= nums[i + h - 1][j - 1];
-                    }
-                    if (cnt == h * w) {
-                        max = cnt;
-                        need_to_exit = true;
-                        break;
-                    }
-                }
-                if (need_to_exit) {
-                    break;
-                }
-            }
-            if (need_to_exit) {
-                break;
-            }
-        }
         return max;
     }
 };
