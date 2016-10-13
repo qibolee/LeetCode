@@ -19,10 +19,7 @@ private:
                 mt.pop();
 
                 int width = (mt.empty() ? i : i - mt.top() - 1);
-                int tmp = heights[ind] * width;
-                if (tmp > max) {
-                    max = tmp;
-                }
+                max = std::max(max, heights[ind] * width);
             }
             mt.push(i);
         }
@@ -46,10 +43,7 @@ public:
                     height[j] = 0;
                 }
             }
-            int tmp = largestRectangleArea(height);
-            if (max < tmp) {
-                max = tmp;
-            }
+            max = std::max(max, largestRectangleArea(height));
         }
 
         return max;
