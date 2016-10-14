@@ -1,14 +1,15 @@
 #include "heads/head.h"
-#include "heads/No91.h"
+#include "heads/No93.h"
 
 using namespace std;
 
 int main() {
 
-    string s("227");
+    string str("010010");
 
     Solution solution;
-    cout << solution.numDecodings(s) << endl;
+    auto res = solution.restoreIpAddresses(str);
+    for_each(res.begin(), res.end(), [](const string &s) { cout << s << endl; });
 
     return 0;
 }
