@@ -2,4 +2,4 @@
 
 c++ solution for leetcode
 
-I am try to complish all solution
+I am try to accomplish all solution
