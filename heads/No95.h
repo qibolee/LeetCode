@@ -24,8 +24,7 @@ private:
     std::vector<TreeNode *> generateTrees(std::vector<int> nums) {
         std::vector<TreeNode *> ret;
         if (nums.empty()) {
-            ret.push_back(nullptr);
-            return ret;
+            return std::vector<TreeNode *>(1, nullptr);
         }
         ret.reserve(4 * nums.size() * nums.size());
         for (int i = 0; i < nums.size(); ++i) {
