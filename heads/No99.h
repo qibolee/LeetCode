@@ -24,11 +24,13 @@ private:
         std::vector<int> ret;
         if (root->left) {
             std::vector<int> left(std::move(getArray(root->left)));
+            ret.reserve(left.size());
             ret.insert(ret.end(), left.begin(), left.end());
         }
         ret.push_back(root->val);
         if (root->right) {
             std::vector<int> right(std::move(getArray(root->right)));
+            ret.reserve(ret.size() + right.size());
             ret.insert(ret.end(), right.begin(), right.end());
         }
         return ret;
@@ -37,7 +39,7 @@ private:
 public:
     void recoverTree(TreeNode *root) {
 
-        std::vector<int> ret = getArray(root);
+        std::vector<int> ret(std::move(getArray(root)));
         int p1 = 0, p2 = 0;
         for (int i = 1; i < ret.size(); ++i) {
             if (ret[i] < ret[i - 1]) {
