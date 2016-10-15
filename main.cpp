@@ -1,20 +1,16 @@
 #include "heads/head.h"
-#include "heads/No97.h"
+#include "heads/No99.h"
 
 using namespace std;
 
 int main() {
 
-
-    string s1 = "aabcc";
-    string s2 = "dbbca";
-
-    string s3 = "aadbbcbcac";
-    string s4 = "aadbbbaccc";
+    TreeNode *root = new TreeNode(0);
+    root->left = new TreeNode(1);
 
     Solution solution;
-    cout << solution.isInterleave(s1, s2, s3) << endl;
-    cout << solution.isInterleave(s1, s2, s4) << endl;
+    solution.recoverTree(root);
+    cout << root->left->val << " " << root->val << endl;
 
     return 0;
 }
