@@ -1,15 +1,14 @@
 #include "heads/head.h"
-#include "heads/No115.h"
+#include "heads/No117.h"
 
 using namespace std;
 
 int main() {
 
-    string s("ccc");
-    string t("c");
+    TreeLinkNode *root = nullptr;
 
     Solution solution;
-    cout << solution.numDistinct(s, t) << endl;
+    solution.connect(root);
 
     return 0;
 }
