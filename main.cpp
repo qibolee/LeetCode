@@ -1,16 +1,15 @@
 #include "heads/head.h"
-#include "heads/No99.h"
+#include "heads/No108.h"
 
 using namespace std;
 
 int main() {
 
-    TreeNode *root = new TreeNode(0);
-    root->left = new TreeNode(1);
+    vector<int> vec = {1, 2, 3};
 
     Solution solution;
-    solution.recoverTree(root);
-    cout << root->left->val << " " << root->val << endl;
+    auto root = solution.sortedArrayToBST(vec);
+    cout << root->left->val << " " << root->val << " " << root->right->val << endl;
 
     return 0;
 }
