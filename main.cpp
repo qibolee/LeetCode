@@ -1,15 +1,15 @@
 #include "heads/head.h"
-#include "heads/No108.h"
+#include "heads/No115.h"
 
 using namespace std;
 
 int main() {
 
-    vector<int> vec = {1, 2, 3};
+    string s("ccc");
+    string t("c");
 
     Solution solution;
-    auto root = solution.sortedArrayToBST(vec);
-    cout << root->left->val << " " << root->val << " " << root->right->val << endl;
+    cout << solution.numDistinct(s, t) << endl;
 
     return 0;
 }
