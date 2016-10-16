@@ -1,14 +1,13 @@
 #include "heads/head.h"
-#include "heads/No117.h"
+#include "heads/No121.h"
 
 using namespace std;
 
 int main() {
 
-    TreeLinkNode *root = nullptr;
-
+    vector<int> vec = {5, 4, 3, 2, 1};
     Solution solution;
-    solution.connect(root);
+    cout << solution.maxProfit(vec) << endl;
 
     return 0;
 }
