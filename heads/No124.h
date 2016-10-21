@@ -2,6 +2,8 @@
 // Created by QiboLee on 2016/10/21 0021.
 //
 
+#include "head.h"
+
 #ifndef LEETCODE_NO124_H
 #define LEETCODE_NO124_H
 
