@@ -1,13 +1,15 @@
 #include "heads/head.h"
-#include "heads/No123.h"
+#include "heads/No124.h"
 
 using namespace std;
 
 int main() {
 
-    vector<int> vec = {1, 3, 5, 2, 4, 3, 7, 0, 3};
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(-2);
+    root->right = new TreeNode(3);
     Solution solution;
-    cout << solution.maxProfit(vec) << endl;
+    cout << solution.maxPathSum(root) << endl;
 
     return 0;
 }
