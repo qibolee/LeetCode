@@ -1,5 +1,5 @@
 #include "heads/head.h"
-#include "heads/No128.h"
+#include "heads/No131.h"
 
 using namespace std;
 
@@ -9,8 +9,13 @@ int main() {
     start = clock();
 
     Solution solution;
-    vector<int> vec = {1, 2, 0, 1};
-    cout << solution.longestConsecutive(vec) << endl;
+    vector<vector<string>> vec = solution.partition("aabb");
+    for (auto &line:vec) {
+        for (auto &str:line) {
+            cout << str << " ";
+        }
+        cout << endl;
+    }
 
     finish = clock();
     cout << 1.0 * (finish - start) / CLOCKS_PER_SEC << " (s)" << endl;
