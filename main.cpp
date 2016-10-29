@@ -1,5 +1,5 @@
 #include "heads/head.h"
-#include "heads/No132.h"
+#include "heads/No141.h"
 
 using namespace std;
 
@@ -12,7 +12,6 @@ int main() {
  */
 //fifgbeajcacehiicccfecbfhhgfiiecdcjjffbghdidbhbdbfbfjccgbbdcjheccfbhafehieabbdfeigbiaggchaeghaijfbjhi
     Solution solution;
-    cout << solution.minCut("aabbaaaa") << endl;
 
 /**X
  * end
