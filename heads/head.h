@@ -20,5 +20,7 @@
 #include <list>
 #include <functional>
 #include <ctime>
+#include <memory>
+#include <cstdio>
 
 #endif //LEETCODE_HEAD_H

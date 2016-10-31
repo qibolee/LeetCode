@@ -1,5 +1,6 @@
 #include "heads/head.h"
 #include "heads/No141.h"
+#include "String.h"
 
 using namespace std;
 
@@ -10,8 +11,10 @@ int main() {
 /**
  * your code
  */
-//fifgbeajcacehiicccfecbfhhgfiiecdcjjffbghdidbhbdbfbfjccgbbdcjheccfbhafehieabbdfeigbiaggchaeghaijfbjhi
-    Solution solution;
+
+    String s;
+    cin >> s;
+    cout << s << endl;
 
 /**X
  * end
@@ -21,4 +24,5 @@ int main() {
 
     return 0;
 }
+
 
