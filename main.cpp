@@ -1,8 +1,9 @@
 #include "heads/head.h"
-#include "heads/No141.h"
+#include "heads/No1.h"
 #include "String.h"
 
 using namespace std;
+
 
 int main() {
 
@@ -12,9 +13,9 @@ int main() {
  * your code
  */
 
-    String s;
-    cin >> s;
-    cout << s << endl;
+    vector<int> nums = {2, 4, 3};
+    auto ret = Solution().twoSum(nums, 5);
+    cout << ret[0] << " " << ret[1] << endl;
 
 /**X
  * end
