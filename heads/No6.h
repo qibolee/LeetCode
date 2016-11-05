@@ -13,19 +13,16 @@ public:
         if (numRows == 1 || s.size() <= numRows) {
             return s;
         }
-        int step = (numRows << 1) - 2;
-        bool toggle = true;
-        int p1 = 0, p2 = 0;
         std::string ret;
         ret.reserve(s.size());
+        int step = (numRows << 1) - 2;
         for (int i = 0; i < s.size(); i += step) {
             ret.push_back(s[i]);
         }
-
         for (int i = 1; i < numRows - 1; ++i) {
-            toggle = true;
-            p2 = i << 1;
-            p1 = step - p2;
+            bool toggle = true;
+            int p2 = i << 1;
+            int p1 = step - p2;
             for (int j = i; j < s.size();) {
                 ret.push_back(s[j]);
                 if (toggle) {
