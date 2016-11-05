@@ -1,5 +1,5 @@
 #include "heads/head.h"
-#include "heads/No1.h"
+#include "heads/No6.h"
 #include "String.h"
 
 using namespace std;
@@ -13,9 +13,7 @@ int main() {
  * your code
  */
 
-    vector<int> nums = {2, 4, 3};
-    auto ret = Solution().twoSum(nums, 5);
-    cout << ret[0] << " " << ret[1] << endl;
+    cout << Solution().convert("ABCDE", 4) << endl;
 
 /**X
  * end
