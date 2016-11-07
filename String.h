@@ -18,6 +18,14 @@ class String {
 
     friend String operator+(const String &, const String &);
 
+private:
+    std::allocator<char> _m_alloc;
+    size_t _m_capacity;
+    size_t _m_size;
+    char *ptr;
+
+    void resize();
+
 public:
     explicit String(size_t = 16u);
 
@@ -65,14 +73,6 @@ public:
 
     String &operator+=(const char *);
 
-
-private:
-    std::allocator<char> _m_alloc;
-    size_t _m_capacity;
-    size_t _m_size;
-    char *ptr;
-
-    void resize();
 
 };
 

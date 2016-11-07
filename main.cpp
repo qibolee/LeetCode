@@ -32,8 +32,6 @@ int main() {
  * your code
  */
 
-    vector<int> nums = {-1, -1, 1, 0, -4, 2};
-    Solution().threeSum(nums);
 
 /**X
  * end
