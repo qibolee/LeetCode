@@ -34,10 +34,7 @@ public:
                 } else if (nums[p1] + nums[p2] > -nums[i]) {
                     --p2;
                 } else {
-                    std::vector<int> line{nums[i], nums[p1], nums[p2]};
-                    if (ret.empty() || ret.back() != line) {
-                        ret.push_back(std::move(line));
-                    }
+                    ret.push_back(std::vector<int>({nums[i], nums[p1], nums[p2]}));
                     ++p1;
                     --p2;
                 }
