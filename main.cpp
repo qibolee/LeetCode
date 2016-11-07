@@ -1,5 +1,5 @@
 #include "heads/head.h"
-#include "heads/No6.h"
+#include "heads/No15.h"
 #include "String.h"
 
 using namespace std;
@@ -32,11 +32,8 @@ int main() {
  * your code
  */
 
-    for (int i = 0; i < 10000000; ++i) {
-        if (get(i) != get2(i)) {
-            cout << i << ":" << get(i) << ":" << get2(i) << endl;
-        }
-    }
+    vector<int> nums = {-1, -1, 1, 0, -4, 2};
+    Solution().threeSum(nums);
 
 /**X
  * end
