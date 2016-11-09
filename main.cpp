@@ -21,7 +21,7 @@ public:
 };
 
 void Handle(A *a) {
-    cout<<typeid(*a).name()<<endl;
+    cout << typeid(*a).name() << endl;
     if (typeid(*a) == typeid(A)) {
         cout << "I am a A truly." << endl;
     }
@@ -36,6 +36,12 @@ void Handle(A *a) {
     }
 }
 
+struct MT {
+    int operator()(int i) {
+        return i + 2;
+    }
+};
+
 
 int main() {
 
@@ -44,14 +50,13 @@ int main() {
 /**
  * your code
  */
-    A *pA = new B();
-    Handle(pA);
-    delete pA;
-    pA = new C();
-    Handle(pA);
-    pA = new B();
-    Handle(pA);
-    return 0;
+    MT mt;
+    cout << mt(5) << endl;
+
+    vector<int> nums = {1, 2, 3, 4, 5};
+    sort(nums.begin(), nums.end(), [](const int &a, const int &b) -> bool { return a > b; });
+    for_each(nums.begin(), nums.end(), [&](const int &i) { cout << i << " "; });
+    cout << endl;
 
 /**
  * end
