@@ -1,5 +1,5 @@
 #include "heads/head.h"
-#include "heads/No15.h"
+#include "heads/No15_3Sum.h"
 #include "String.h"
 
 using namespace std;
