@@ -5,6 +5,8 @@
 #ifndef LEETCODE_NO138_H
 #define LEETCODE_NO138_H
 
+#include "head.h"
+
 /**
  * Definition for singly-linked list with a random pointer.
  */
