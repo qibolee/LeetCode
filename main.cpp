@@ -1,5 +1,5 @@
 #include "heads/head.h"
-#include "heads/No15_3Sum.h"
+#include "heads/No150_Evaluate Reverse Polish Notation.h"
 #include "String.h"
 
 using namespace std;
@@ -50,13 +50,9 @@ int main() {
 /**
  * your code
  */
-    MT mt;
-    cout << mt(5) << endl;
 
-    vector<int> nums = {1, 2, 3, 4, 5};
-    sort(nums.begin(), nums.end(), [](const int &a, const int &b) -> bool { return a > b; });
-    for_each(nums.begin(), nums.end(), [&](const int &i) { cout << i << " "; });
-    cout << endl;
+    vector<string> vec = {"18"};
+    cout << Solution().evalRPN(vec) << endl;
 
 /**
  * end
