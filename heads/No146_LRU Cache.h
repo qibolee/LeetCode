@@ -11,42 +11,43 @@ class LRUCache {
 private:
     int capacity;
     std::unordered_map<int, int> mp;
-    std::list<int> cache;
+    std::unordered_map<int, int> times;
+    std::vector<int> cache;
+    int beg;
 
-    void setPro(int key) {
-        auto p = std::find_if(cache.begin(), cache.end(), [&](const int &i) { return i == key; });
-        cache.erase(p);
-        cache.push_back(key);
+    void resize() {
+        while (times.size() == capacity) {
+            int tmp = cache[beg++];
+            --times[tmp];
+            if (times[tmp] == 0) {
+                times.erase(tmp);
+            }
+        }
     }
 
 public:
-    LRUCache(int capacity) {
-        this->capacity = capacity;
+    LRUCache(int capacity) : capacity(capacity), beg(0) {
+        mp.reserve(capacity * 2);
+        times.reserve(capacity * 2);
+        cache.reserve(capacity * 4);
     }
 
     int get(int key) {
-        if (mp.empty() || mp.find(key) == mp.end()) {
+        if (times.empty() || times.find(key) == times.end()) {
             return -1;
         }
-        setPro(key);
+        cache.push_back(key);
+        ++times[key];
         return mp[key];
     }
 
     void set(int key, int value) {
-        if (mp.find(key) == mp.end()) {
-            if (cache.size() < capacity) {
-                cache.push_back(key);
-                mp[key] = value;
-            } else {
-                mp.erase(cache.front());
-                cache.pop_front();
-                cache.push_back(key);
-                mp[key] = value;
-            }
-        } else {
-            mp[key] = value;
-            setPro(key);
+        if (times.size() == capacity && times.find(key) == times.end()) {
+            resize();
         }
+        cache.push_back(key);
+        ++times[key];
+        mp[key] = value;
     }
 };
 
