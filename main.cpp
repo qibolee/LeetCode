@@ -1,6 +1,8 @@
 #include "heads/head.h"
 #include "heads/No149_Max Points on a Line.h"
 #include "String.h"
+#include <fstream>
+
 
 using namespace std;
 
@@ -60,8 +62,10 @@ int main() {
 /**
  * your code
  */
-
-    Solution s;
+    vector<bool> vec;
+    vec.push_back(true);
+    auto var = String();
+    cout << typeid(var).name() << endl;
 
 /**
  * end
