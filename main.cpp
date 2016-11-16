@@ -62,10 +62,10 @@ int main() {
 /**
  * your code
  */
-    vector<bool> vec;
-    vec.push_back(true);
-    auto var = String();
-    cout << typeid(var).name() << endl;
+    vector<int> vec;
+    vec.push_back(2);
+    auto var = vec[0];
+    cout << typeid(vector<int>).name() << endl;
 
 /**
  * end
