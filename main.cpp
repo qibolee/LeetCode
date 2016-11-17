@@ -24,7 +24,7 @@ public:
 
 void Handle(A *a) {
     cout << typeid(*a).name() << endl;
-    if (typeid(*a) == typeid(A)) {
+    if (typeid(*a) == typeid(class A)) {
         cout << "I am a A truly." << endl;
     }
     else if (typeid(*a) == typeid(B)) {
@@ -65,7 +65,7 @@ int main() {
     vector<int> vec;
     vec.push_back(2);
     auto var = vec[0];
-    cout << typeid(vector<int>).name() << endl;
+    cout << typeid(class B).name() << endl;
 
 /**
  * end
