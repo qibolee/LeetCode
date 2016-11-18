@@ -62,9 +62,7 @@ int main() {
 /**
  * your code
  */
-    vector<int> vec;
-    vec.push_back(2);
-    auto var = vec[0];
+    vector<vector<int>> vec;
     cout << typeid(class B).name() << endl;
 
 /**
