@@ -23,7 +23,7 @@ public:
         for (int i = 2; i < dp.size(); ++i) {
             dp[i] = std::max(dp[i - 1], dp[i - 2] + nums[i]);
         }
-        return std::max(dp[dp.size() - 1], dp[dp.size() - 2]);
+        return dp.back();
     }
 
 //another solution,use O(1) space and O(n) time
@@ -42,7 +42,7 @@ public:
             a = b;
             b = c;
         }
-        return std::max(a, b);
+        return b;
     }
 };
 
