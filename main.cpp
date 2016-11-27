@@ -1,7 +1,8 @@
 #include "heads/head.h"
-#include "heads/No28_Implement strStr().h"
+#include "heads/No218_The Skyline Problem.h"
 #include "String.h"
 #include <fstream>
+#include "Kara.h"
 
 
 using namespace std;
@@ -9,49 +10,28 @@ using namespace std;
 
 class A {
 public:
-    virtual void Print() { cout << "This is class A." << endl; }
+    A(int i) {
+        cout << "A(int)" << endl;
+    }
+
+private:
+    typedef enum {
+        a,
+        b,
+        c
+    } Types;
 };
 
 class B : public A {
 public:
-    void Print() { cout << "This is class B." << endl; }
-};
-
-class C : public A {
-public:
-    void Print() { cout << "This is class C." << endl; }
-};
-
-void Handle(A *a) {
-    cout << typeid(*a).name() << endl;
-    if (typeid(*a) == typeid(class A)) {
-        cout << "I am a A truly." << endl;
-    }
-    else if (typeid(*a) == typeid(B)) {
-        cout << "I am a B truly." << endl;
-    }
-    else if (typeid(*a) == typeid(C)) {
-        cout << "I am a C truly." << endl;
-    }
-    else {
-        cout << "I am alone." << endl;
-    }
-}
-
-struct MT {
-    int operator()(int i) {
-        return i + 2;
+    B() : A(3) {
+        cout << "B()" << endl;
     }
 };
 
-struct VectorHash {
-    size_t operator()(const std::vector<int> &v) const {
-        std::hash<int> hasher;
-        size_t seed = 0;
-        for (int i : v) {
-            seed ^= hasher(i) + 0x9e3779b9 + (seed << 6) + (seed >> 2);
-        }
-        return seed;
+struct Comp {
+    bool operator()(const pair<int, int> &par1, const pair<int, int> &par2) {
+        return par1.first < par2.first;
     }
 };
 
@@ -62,9 +42,19 @@ int main() {
 /**
  * your code
  */
-    std::string s("mississippi");
-    std::string p("issi");
-    cout << Solution().strStr(s, p) << endl;
+
+    vector<vector<int>> vec = {
+            {3,  9,  8},
+            {5,  7,  10},
+            {8,  11, 9},
+            {13, 15, 3}
+    };
+    auto res = Solution().getSkyline(vec);
+    for (auto &par:res) {
+        cout << par.first << " " << par.second << endl;
+    }
+
+
 
 /**
  * end
