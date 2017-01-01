@@ -14,7 +14,6 @@ public:
             target > matrix.back().back()) {
             return false;
         }
-
         int row = matrix.size(), col = matrix.front().size();
         int i = row - 1, j = 0;
         while (i >= 0 && j < col) {
