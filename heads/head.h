@@ -5,6 +5,7 @@
 #ifndef LEETCODE_HEAD_H
 #define LEETCODE_HEAD_H
 
+#include <string>
 #include <cstdlib>
 #include <iostream>
 #include <vector>
