@@ -75,20 +75,16 @@ public:
             return ret;
         }
         int left = 0, right = 0;
-        int cnt = 0;
         for (auto ch : s) {
             if (ch == '(') {
-                ++cnt;
+                ++left;
             } else if (ch == ')') {
-                --cnt;
-                if (cnt < 0) {
-                    cnt = 0;
+                --left;
+                if (left < 0) {
+                    left = 0;
                     ++right;
                 }
             }
-        }
-        if (cnt > 0) {
-            left += cnt;
         }
         if (left + right >= s.size()) {
             ret.push_back("");
