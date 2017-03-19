@@ -3,7 +3,7 @@
 #include "String.h"
 #include <fstream>
 #include "Kara.h"
-//#include "TestB.h"
+#include "KMP.h"
 
 
 using namespace std;
@@ -83,21 +83,12 @@ int main() {
  */
 
 
-    int m, n;
-    auto old_precision = cout.precision();
-    cout.setf(ios::fixed);
-    cout.precision(2);
-    while (cin >> m >> n) {
-        double sum = 0;
-        double beg = n;
-        while (m--) {
-            sum += beg;
-            beg = sqrt(beg);
-        }
-        cout << sum << endl;
+    string s("abcdabd");
+    auto ret = KMP().getNext(s);
+    for (int i:ret) {
+        cout << i << " ";
     }
-    cout.unsetf(ios::fixed);
-    cout.precision(old_precision);
+    cout << endl;
 
 
 /**

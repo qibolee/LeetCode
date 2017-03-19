@@ -3,5 +3,5 @@ project(LeetCode)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp "heads/No306_Additive Number.h")
+set(SOURCE_FILES main.cpp Kara.cpp KMP.cpp)
 add_executable(LeetCode ${SOURCE_FILES})
