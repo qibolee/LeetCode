@@ -3,5 +3,6 @@ project(LeetCode)
 
 set(CMAKE_CXX_STANDARD 14)
 
-set(SOURCE_FILES main.cpp Kara.cpp KMP.cpp)
+set(SOURCE_FILES main.cpp)
+
 add_executable(LeetCode ${SOURCE_FILES})
