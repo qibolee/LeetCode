@@ -73,6 +73,53 @@ string Decode(string in) {
 
 }
 
+void q_sort(int *nums, int n) {
+    if (n == 0 || n == 1) {
+        return;
+    }
+    int tmp = nums[0];
+    int p1 = 0, p2 = n - 1;
+    bool fill_front = true;
+    while (p1 < p2) {
+        if (fill_front) {
+            if (nums[p2] < tmp) {
+                nums[p1] = nums[p2];
+                ++p1;
+                fill_front = false;
+            } else {
+                --p2;
+            }
+        } else {
+            if (nums[p1] > tmp) {
+                nums[p2] = nums[p1];
+                --p2;
+                fill_front = true;
+            } else {
+                ++p1;
+            }
+        }
+    }
+    nums[p1] = tmp;
+    q_sort(nums, p1);
+    q_sort(nums + p1 + 1, n - p1 - 1);
+
+}
+
+struct PairHash {
+    int operator()(const pair<int, int> &par) const {
+        return par.first ^ par.second;
+    }
+};
+
+bool is_shui(int n) {
+    int tmp = n;
+    int sum = 0;
+    while (tmp > 0) {
+        sum += (tmp % 10) * (tmp % 10) * (tmp % 10);
+        tmp /= 10;
+    }
+    return sum == n;
+}
 
 int main() {
 
@@ -83,12 +130,8 @@ int main() {
  */
 
 
-    string s("abcdabd");
-    auto ret = KMP().getNext(s);
-    for (int i:ret) {
-        cout << i << " ";
-    }
-    cout << endl;
+
+
 
 
 /**
